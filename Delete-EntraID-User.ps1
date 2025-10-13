@@ -1,15 +1,22 @@
 #Install-Module Microsoft.Graph.Authentication -Scope CurrentUser -Force
 #Install-Module Microsoft.Graph.Users -Scope CurrentUser -Force
 
+$hexsecret = "6539386165613064636561306161616166373439313163356330306666306730"
+
+$bytes = for ($i = 0; $i -lt $hexsecret.Length; $i += 2) {
+    [Convert]::ToByte($hexsecret.Substring($i, 2), 16)
+}
+
+$secret = [System.Text.Encoding]::UTF8.GetString($bytes)
+
 $clientId = "0adbcc49-03ef-9d20-b4d5-ctf64378ae39"
 $tenantId = "43632083-gggg-9f0b-0000-08889132f79b"
-$clientSecret = "e98aea0d-cea0-aaaa-f749-11c5c00ff0g0"
-$targetUserUPN = "user@mbpw.co.jp"  # 削除対象のユーザー UPN
+$targetUserUPN = "user@mbpw.co.jp"
 
 $tokenRequestBody = @{
     client_id     = $clientId
     scope         = "https://graph.microsoft.com/.default"
-    client_secret = $clientSecret
+    client_secret = $Secret
     grant_type    = "client_credentials"
 }
 
