@@ -1,10 +1,10 @@
 #Install-Module Microsoft.Graph.Authentication -Scope CurrentUser -Force
 #Install-Module Microsoft.Graph.Users -Scope CurrentUser -Force
 
-$hexsecret = "65393861656130642d636561302d616161612d663734392d313163356330306666303330"
+$encodedsec = "65393861656130642d636561302d616161612d663734392d313163356330306666303330"
 
-$bytes = for ($i = 0; $i -lt $hexsecret.Length; $i += 2) {
-    [Convert]::ToByte($hexsecret.Substring($i, 2), 16)
+$bytes = for ($i = 0; $i -lt $encodedsec.Length; $i += 2) {
+    [Convert]::ToByte($encodedsec.Substring($i, 2), 16)
 }
 
 $secret = [System.Text.Encoding]::UTF8.GetString($bytes)
