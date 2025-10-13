@@ -1,1 +1,1 @@
-# private
+# clientSecret is the flag.
