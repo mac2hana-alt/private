@@ -11,7 +11,7 @@ $secret = [System.Text.Encoding]::UTF8.GetString($bytes)
 
 $clientId = "0adbcc49-03ef-9d20-b4d5-c1f64378ae39"
 $tenantId = "43632083-cccc-9f0b-0000-08889132f79b" 
-$targetUserUPN = "user@mbpw.co.jp" #set mbpw user name
+$targetUserUPN = "user@mbpw.co.jp" ##set mbpw user name
 
 $tokenRequestBody = @{
     client_id     = $clientId
